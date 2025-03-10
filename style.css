@@ -12,7 +12,7 @@ body {
 
 /* Header Styles */
 h1 {
-    font-size: 60px;
+    font-size: 55px;
     color: #2c3e50; /* Dark blue-gray for a professional look */
     text-align: center;
     margin-top: 15px;
@@ -34,7 +34,7 @@ h1 {
 
 /* Subheading Styles */
 h2 {
-    font-size: 28px;
+    font-size: 24px;
     color: #2980b9; /* Lively blue for accent */
     margin-top: 15px;
     margin-bottom: 0;
@@ -45,7 +45,7 @@ h2 {
 }
 
 h3 {
-    font-size: 23px;
+    font-size: 22px;
     color: #34495e; /* A softer, dark gray-blue for the subheading */
     text-align: left;
     margin-top: 15px;
@@ -60,7 +60,7 @@ h3 {
 
 /* Info Text with emojis */
 h4 {
-    font-size: 20px;
+    font-size: 22px;
     color: #7f8c8d; /* Muted gray for less emphasis */
     text-align: left;
     margin-top: 15px;
@@ -83,7 +83,7 @@ h4 {
 
 
 h6 {
-    font-size: 40px; /* Reduced size to make it less dominant */
+    font-size: 45px; /* Reduced size to make it less dominant */
     font-weight: 600; /* Slightly bolder to make it stand out */
     color: #2980b9; /* Darker color for a more professional look */
     text-align: center;
@@ -94,7 +94,7 @@ h6 {
 
 /* h7 - Subtle Alert Color */
 h7 {
-    font-size: 23px;
+    font-size: 18px;
     color: #ff0000; /* Gold color, now slightly subtler */
     text-align: center;
     margin-top: 10px;
@@ -146,18 +146,19 @@ h8:hover {
     align-items: stretch; /* Makes all child elements equal height */
     margin-bottom: 20px;
     overflow-y: auto ;
-}
+    }
 
 /* Video Container */
 #container {
     width: 75%;
-    height: 90%;
+    height: 100%;
     background: #000;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height:min-content;
     opacity: 0;
     animation: fadeIn 1s ease-out forwards 2s;
 }
@@ -172,18 +173,19 @@ h8:hover {
 /* Menu should match video height */
 #menu {
     width: 25%;
-    height: 90%; /* Ensures it takes full height */
+    min-height: 100%;
+    max-height: 100%;
     background: rgba(0, 0, 0, 1);
-    
-    display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    display: flex;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    overflow-y: auto ; /* Enables vertical scrolling */
+    /* Enables vertical scrolling */
     opacity: 0;
     animation: fadeIn 1s ease-out forwards 2s;
+    flex-grow: 1;
+    
 }
-
 #menu:hover {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
@@ -199,8 +201,9 @@ h8:hover {
     list-style-type: none;
     padding: 0;
     margin: 0;
-     /* Enables scrolling if needed */
-    max-height: 90%; /* Optional: Set a max height for the list */
+    flex-grow: 1;
+    overflow-y: auto ; 
+    display: flex;
 }
 
 #menu li {
@@ -209,9 +212,10 @@ h8:hover {
     font-size: 18px;
     color: #ffffff;
     cursor: pointer;
-     
+
     transition: background 0.3s ease, padding 0.2s ease; /* Added padding transition for smoother effect */
 }
+
 
 #menu li:hover {
     border-radius: 8px; /* Rounded corners for list items */
