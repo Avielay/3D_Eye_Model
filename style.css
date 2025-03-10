@@ -1,0 +1,284 @@
+/* Basic styling for the page */
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Header Styles */
+h1 {
+    font-size: 60px;
+    color: #2c3e50; /* Dark blue-gray for a professional look */
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 0;
+
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 0.5s;
+}
+
+/* FadeIn Animation Keyframe */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Subheading Styles */
+h2 {
+    font-size: 28px;
+    color: #2980b9; /* Lively blue for accent */
+    margin-top: 15px;
+    margin-bottom: 0;
+    text-align: center;
+
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 1s;
+}
+
+h3 {
+    font-size: 23px;
+    color: #34495e; /* A softer, dark gray-blue for the subheading */
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 1.5s;
+}
+
+/* Info Text with emojis */
+h4 {
+    font-size: 20px;
+    color: #7f8c8d; /* Muted gray for less emphasis */
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 2s;
+}
+
+/* Emoji Hover Effect */
+.emoji {
+    font-size: 30px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+
+h6 {
+    font-size: 40px; /* Reduced size to make it less dominant */
+    font-weight: 600; /* Slightly bolder to make it stand out */
+    color: #2980b9; /* Darker color for a more professional look */
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 0;
+    text-transform: uppercase; /* Adds a bit more refinement */
+}
+
+/* h7 - Subtle Alert Color */
+h7 {
+    font-size: 23px;
+    color: #ff0000; /* Gold color, now slightly subtler */
+    text-align: center;
+    margin-top: 10px;
+    text-transform: capitalize; /* Capitalize only the first letter */
+}
+
+/* h8 - Professional Soft Accent */
+h8 {
+    font-size: 25px;
+    color: #ffffff; /* Teal is professional and inviting */
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 10px;
+    font-weight: 500; /* A more neutral weight to make it not too dominant */
+    cursor: pointer; /* Pointer to indicate it's interactive */
+}
+
+h8:hover {
+    color: #122287; /* Slightly change the color on hover to make it interactive */
+}
+
+
+
+.emoji:hover {
+    transform: scale(1.2); /* Increase the size when hovered */
+}
+/* Add images with smooth scale effects */
+.image-effect {
+    width: 150px;
+    height: auto;
+    margin: 20px;
+    transition: transform 0.3s ease;
+}
+
+.image-effect:hover {
+    transform: scale(1.1); /* Scale the image slightly on hover */
+}
+
+/* Main container - Ensures all children have equal height */
+#main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    align-items: stretch; /* Makes all child elements equal height */
+    margin-bottom: 20px;
+    overflow-y: auto ;
+}
+
+/* Video Container */
+#container {
+    width: 75%;
+    height: 90%;
+    background: #000;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 2s;
+}
+
+/* Ensure the video fills the container */
+#videoPlayer {
+    width: 100%;
+    height: 80%;
+    object-fit: scale-down ;
+}
+
+/* Menu should match video height */
+#menu {
+    width: 25%;
+    height: 90%; /* Ensures it takes full height */
+    background: rgba(0, 0, 0, 1);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto ; /* Enables vertical scrolling */
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 2s;
+}
+
+#menu:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Menu Header */
+#menu h2 {
+    font-size: 22px;
+    color: #ffffff;
+    margin: 20px;
+}
+
+#menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+     /* Enables scrolling if needed */
+    max-height: 90%; /* Optional: Set a max height for the list */
+}
+
+#menu li {
+    margin: 15px 0;
+    padding: 12px;
+    font-size: 18px;
+    color: #ffffff;
+    cursor: pointer;
+     
+    transition: background 0.3s ease, padding 0.2s ease; /* Added padding transition for smoother effect */
+}
+
+#menu li:hover {
+    border-radius: 8px; /* Rounded corners for list items */
+    padding-left: 15px; /* Add slight indent to make it feel interactive */
+}
+
+/* Buttons */
+button {
+    background-color: #3498db; /* Blue with more refined shade */
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin-bottom: 0px; /* Reduce space between buttons */
+}
+
+/* Container holding buttons (if there is one) */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Space between buttons */
+}
+
+button:hover {
+    background-color: #2980b9; /* Slightly darker blue */
+    transform: translateY(-5px); /* More noticeable lift effect */
+    box-shadow: 0 6px 1px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+button:active {
+    
+    background-color: #1f6f9b; /* Deeper blue for active state */
+    transform: translateY(0); /* Remove the lift effect when clicked */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow on active state */
+}
+
+/* Info Panel */
+#infoPanel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(50, 50, 50, 0.7);
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 3s;
+}
+
+/* Section transitions for smoother entry */
+section {
+    opacity: 0;
+    animation: sectionFadeIn 2s ease-out forwards;
+}
+
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
