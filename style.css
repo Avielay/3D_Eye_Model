@@ -1,4 +1,12 @@
 /* Basic styling for the page */
+#normal, #myopia, #hyperopia, #aberration, #astigmatic {
+    display: none;
+}
+
+h8 {
+    cursor: pointer;
+}
+
 body {
     margin: 0;
     overflow: hidden;
