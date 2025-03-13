@@ -23,37 +23,38 @@
             <h7>Choose a Video</h7>
 
             <!-- Category 1: Eye Videos -->
-            <div class="category-item" onclick="toggleCategory('normal')">Normal</div>
+            <div class="category-item" data-category="normal" onclick="toggleCategory('normal')">Normal</div>
             <ul id="normal" style="display:none;">
                 <li><button onclick="loadVideo('eye_with_number.mp4')">Healthy Eye</button></li>
             </ul>
-
-            <div class="category-item" onclick="toggleCategory('aberration')">Spherical Aberration</div>
+            
+            <div class="category-item" data-category="aberration" onclick="toggleCategory('aberration')">Spherical Aberration</div>
             <ul id="aberration" style="display:none;">
                 <li><button onclick="loadVideo('lens_with_spherical_aberration.mp4')">Lens with spherical aberration</button></li>
                 <li><button onclick="loadVideo('eye_with_spherical_aberration.mp4')">Eye with spherical aberration</button></li>
             </ul>
-
-            <div class="category-item" onclick="toggleCategory('astigmatic')">Astigmation</div>
+            
+            <div class="category-item" data-category="astigmatic" onclick="toggleCategory('astigmatic')">Astigmation</div>
             <ul id="astigmatic" style="display:none;">
                 <li><button onclick="loadVideo('astigmatic_lens.mp4')">Astigmatic lens</button></li>
                 <li><button onclick="loadVideo('astigmatic_lens_with_correction.mp4')">Astigmatic lens with corrections</button></li>
                 <li><button onclick="loadVideo('astigmatic_eye.mp4')">Astigmatic eye</button></li>
                 <li><button onclick="loadVideo('eastigmatic_eye_with_correction.mp4')">Astigmatic eye with correction lens</button></li>
             </ul>
-
+            
             <!-- Category 2: Myopia Videos -->
-            <div class="category-item" onclick="toggleCategory('myopia')">Myopia</div>
+            <div class="category-item" data-category="myopia" onclick="toggleCategory('myopia')">Myopia</div>
             <ul id="myopia" style="display:none;">
                 <li><button onclick="loadVideo('myopia.mp4')">Myopia</button></li>
                 <li><button onclick="loadVideo('myopia_with_correction.mp4')">Myopia with correction</button></li>
             </ul>
-
-            <div class="category-item" onclick="toggleCategory('hyperopia')">Hyperopia</div>
+            
+            <div class="category-item" data-category="hyperopia" onclick="toggleCategory('hyperopia')">Hyperopia</div>
             <ul id="hyperopia" style="display:none;">
                 <li><button onclick="loadVideo('hyperopia.mp4')">Hyperopia</button></li>
                 <li><button onclick="loadVideo('hyperopia_with_correction.mp4')">Hyperopia with correction</button></li>
             </ul>
+
         </div>
 
         <!-- Container where the 3D rendering will appear -->
