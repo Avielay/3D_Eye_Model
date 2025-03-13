@@ -151,8 +151,8 @@ h7 {
     height: 100vh; /* Full viewport height */
     align-items: stretch; /* Makes all child elements equal height */
     margin-bottom: 20px;
-    overflow-y: auto ;
-    }
+    overflow-y: auto;
+}
 
 /* Video Container */
 #container {
@@ -164,16 +164,9 @@ h7 {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height:min-content;
+    min-height: min-content;
     opacity: 0;
     animation: fadeIn 1s ease-out forwards 2s;
-}
-
-/* Ensure the video fills the container */
-#videoPlayer {
-    width: 100%;
-    height: 80%;
-    object-fit: scale-down ;
 }
 
 /* Menu should match video height */
@@ -190,10 +183,8 @@ h7 {
     opacity: 0;
     animation: fadeIn 1s ease-out forwards 2s;
     flex-grow: 1;
-    
-}
-#menu:hover {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 0; /* Ensure it's behind the buttons */
 }
 
 /* Menu Header */
@@ -203,12 +194,13 @@ h7 {
     margin: 20px;
 }
 
+/* Menu items */
 #menu ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     flex-grow: 1;
-    overflow-y: auto ; 
+    overflow-y: auto;
     display: flex;
 }
 
@@ -219,47 +211,46 @@ h7 {
     color: #ffffff;
     cursor: pointer;
 
-    transition: background 0.3s ease, padding 0.2s ease; /* Added padding transition for smoother effect */
+    transition: background 0.3s ease, padding 0.2s ease;
 }
 
-
 #menu li:hover {
-    border-radius: 8px; /* Rounded corners for list items */
-    padding-left: 15px; /* Add slight indent to make it feel interactive */
+    border-radius: 8px;
+    padding-left: 15px;
 }
 
 /* Buttons */
 button {
-    background-color: #3498db; /* Blue with more refined shade */
+    background-color: #3498db;
     color: white;
     border: none;
     padding: 12px;
     cursor: pointer;
     font-size: 20px;
     width: 100%;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    margin-bottom: 0px; /* Reduce space between buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0px;
+    z-index: 1; /* Ensure buttons are on top of the menu */
 }
 
 /* Container holding buttons (if there is one) */
 .button-container {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Space between buttons */
+    gap: 8px;
 }
 
 button:hover {
-    background-color: #2980b9; /* Slightly darker blue */
-    transform: translateY(-5px); /* More noticeable lift effect */
-    box-shadow: 0 6px 1px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    background-color: #2980b9;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 1px rgba(0, 0, 0, 0.2);
 }
 
 button:active {
-     z-index: 1;
-    background-color: #1f6f9b; /* Deeper blue for active state */
-    transform: translateY(0); /* Remove the lift effect when clicked */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow on active state */
+    background-color: #1f6f9b;
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Info Panel */
