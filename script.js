@@ -1,31 +1,295 @@
-// Function to toggle categories
-function toggleCategory(category) {
-    console.log('Toggling category:', category);  // Log to see if the function is triggered
 
-    // Define all categories
-    const categories = ['normal', 'myopia', 'hyperopia', 'aberration', 'astigmatic'];
-    
-    // Hide all categories except the selected one
-    categories.forEach(function(cat) {
-        const categoryElement = document.getElementById(cat);
-        if (cat !== category) {
-            categoryElement.style.display = 'none';  // Hide the other categories
-        }
-    });
+/* Basic styling for the page */
+#normal, #myopia, #hyperopia, #aberration, #astigmatic {
+    display: none;
+}
+body {
+    margin: 0;
+    overflow: scroll;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display block-size;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f4f4f9;
+    color: #333;
+}
 
-    // Toggle the selected category
-    const categoryElement = document.getElementById(category);
-    if (categoryElement.style.display === 'none' || categoryElement.style.display === '') {
-        categoryElement.style.display = 'block';  // Show it if it's hidden
-    } else {
-        categoryElement.style.display = 'none';  // Hide it if it's already visible
+/* Header Styles */
+h1 {
+    font-size: 55px;
+    color: #2c3e50; /* Dark blue-gray for a professional look */
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 0;
+
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 0.5s;
+}
+
+/* FadeIn Animation Keyframe */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 
-// Function to load the video
-function loadVideo(videoFile) {
-    var videoPlayer = document.getElementById('videoPlayer');
-    videoPlayer.src = videoFile;
-    videoPlayer.load();
-    videoPlayer.play();
+/* Subheading Styles */
+h2 {
+    font-size: 24px;
+    color: #2980b9; /* Lively blue for accent */
+    margin-top: 15px;
+    margin-bottom: 0;
+    text-align: center;
+
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 1s;
 }
+
+h3 {
+    font-size: 22px;
+    color: #34495e; /* A softer, dark gray-blue for the subheading */
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 1.5s;
+}
+
+/* Info Text with emojis */
+h4 {
+    font-size: 22px;
+    color: #7f8c8d; /* Muted gray for less emphasis */
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 2s;
+}
+
+/* Emoji Hover Effect */
+.emoji {
+    font-size: 30px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+
+h6 {
+    font-size: 45px; /* Reduced size to make it less dominant */
+    font-weight: 600; /* Slightly bolder to make it stand out */
+    color: #2980b9; /* Darker color for a more professional look */
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 0;
+    text-transform: uppercase; /* Adds a bit more refinement */
+}
+
+/* h7 - Subtle Alert Color */
+h7 {
+    font-size: 18px;
+    color: #ff0000; /* Gold color, now slightly subtler */
+    text-align: center;
+    margin-top: 10px;
+    text-transform: capitalize; /* Capitalize only the first letter */
+}
+
+
+
+/* Category items */
+.category-item {
+    font-size: 25px;
+    color: #ffffff; /* Teal is professional and inviting */
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 10px;
+    font-weight: 500; /* A more neutral weight to make it not too dominant */
+    cursor: pointer; /* Pointer to indicate it's interactive */
+}
+
+.category-item:hover {
+    color: #122287; /* Slightly change the color on hover to make it interactive */
+}
+
+
+
+.emoji:hover {
+    transform: scale(1.2); /* Increase the size when hovered */
+}
+/* Add images with smooth scale effects */
+.image-effect {
+    width: 150px;
+    height: auto;
+    margin: 20px;
+    transition: transform 0.3s ease;
+}
+
+.image-effect:hover {
+    transform: scale(1.1); /* Scale the image slightly on hover */
+}
+
+/* Main container - Ensures all children have equal height */
+#main-container {
+    display: flex;
+    flex-direction:row;
+    width: 100%;
+    height: 1000xp; /* Full viewport height */
+    align-items: stretch; /* Makes all child elements equal height */
+    margin-bottom: 20px;
+    
+}
+
+/* Video Container */
+#container {
+    width: 75%;
+    height: 100;
+    display: flex;  /* Corrected typo */
+    background: #000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 2s;
+    padding: 20px; /* Adds extra padding to the container */
+    box-sizing: border-box; /* Ensures padding is included in the element's total width/height */
+}
+#videoPlayer {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the container fully, maintaining aspect ratio */
+    border-radius: 8px; /* Optional: Add rounded corners to the video */
+}
+
+/* Menu should match video height */
+#menu {
+    width: 25%;
+    height: 100;;
+    background: rgba(0, 0, 0, 1);
+    flex-direction: column;
+    justify-content: flex-start;
+    display: flex;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Enables vertical scrolling */
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 2s;
+    flex-grow: 1;
+    position: relative;
+    z-index: 0; /* Ensure it's behind the buttons */
+}
+
+/* Menu Header */
+#menu h2 {
+    font-size: 22px;
+    color: #ffffff;
+    margin: 20px;
+}
+
+/* Menu items */
+#menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+}
+
+#menu li {
+    margin: 15px 0;
+    padding: 12px;
+    font-size: 18px;
+    color: #ffffff;
+    cursor: pointer;
+
+    transition: background 0.3s ease, padding 0.2s ease;
+}
+
+#menu li:hover {
+    border-radius: 8px;
+    padding-left: 15px;
+}
+
+/* Buttons */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0px;
+    z-index: 1; /* Ensure buttons are on top of the menu */
+}
+
+/* Container holding buttons (if there is one) */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 1px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    background-color: #1f6f9b;
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Info Panel */
+#infoPanel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(50, 50, 50, 0.7);
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 3s;
+}
+
+/* Section transitions for smoother entry */
+section {
+    opacity: 0;
+    animation: sectionFadeIn 2s ease-out forwards;
+}
+
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
