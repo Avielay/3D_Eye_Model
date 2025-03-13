@@ -256,7 +256,7 @@ button:hover {
 }
 
 button:active {
-    
+     z-index: 1;
     background-color: #1f6f9b; /* Deeper blue for active state */
     transform: translateY(0); /* Remove the lift effect when clicked */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow on active state */
